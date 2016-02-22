@@ -4,8 +4,8 @@
 #' @import jsonlite
 #' @import sp
 #' @import gstat
-#' @import maptools
 #' @import rgeos
+#' @import maptools
 #' @param JSON
 
 inteRidw <- function(input){
