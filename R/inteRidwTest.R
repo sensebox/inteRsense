@@ -10,8 +10,8 @@
 
 inteRidwTest <- function(input){
   ### JSON to data.frame ###
-  oSeM_df <- fromJSON(input)
-  return(oSeM_df)
+  oSeM_df <- input
+  return(class(oSeM_df))
 #   ### data.frame to spatialPointsDataFrame ###
 #   coordinates(oSeM_df) =~longitude+latitude
 #   ### adding CRS to the data ###
