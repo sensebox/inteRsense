@@ -10,9 +10,7 @@
 
 inteRidw <- function(input){
   ### JSON to data.frame ###
-  oSeM_JSON <- input
-  oSeM_df <- fromJSON(oSeM_JSON)
-  oSeM_df_onlydf <-fromJSON(oSeM_JSON)
+  oSeM_df <- fromJSON(input)
   ### data.frame to spatialPointsDataFrame ###
   coordinates(oSeM_df) =~longitude+latitude
   ### adding CRS to the data ###
@@ -45,14 +43,7 @@ inteRidw <- function(input){
   dev.off()
 }
 
-#' Test function HelloWorld
-#' 
-#' @export
 
-helloWorld <- function(){
-  world <- 'Hello World!'
-  return(world)
-}
 
 
 
