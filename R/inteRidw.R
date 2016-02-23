@@ -4,6 +4,7 @@
 #' @import jsonlite
 #' @import sp
 #' @import gstat
+#' @import gpclib
 #' @import rgeos
 #' @import maptools
 #' @param JSON
