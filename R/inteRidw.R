@@ -1,12 +1,10 @@
 #' Create a PNG which shows interpolated senseMap Data
 #' 
 #' @export
-#' @import jsonlite
 #' @import sp
 #' @import gstat
 #' @import rgeos
 #' @import maptools
-#' @param JSON
 
 inteRidw <- function(input){
   ### JSON to data.frame ###

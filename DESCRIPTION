@@ -6,6 +6,6 @@ Date: 2016-02-17
 Author: Marc Dragunski
 Maintainer: Marc Dragunski <m.dragunski@uni-muenster.de>
 Description: Rpackage for my BA thesis designed to be used with OpenCPU
-Imports: gstat, jsonlite, rgeos, maptools, sp
+Imports: gstat, rgeos, maptools, sp
 License: MIT
 RoxygenNote: 5.0.1
