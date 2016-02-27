@@ -2,6 +2,7 @@
 #' 
 #' @export
 #' @import sp
+#' @import rgdal
 #' @import gstat
 #' @import rgeos
 #' @import maptools
