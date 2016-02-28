@@ -7,7 +7,14 @@
 #' @import rgeos
 #' @import maptools
 
+
 inteRidwTest <- function(input){
+  library(sp)
+  library(rgdal)
+  library(gstat)
+  library(rgeos)
+  library(maptools)
+  
   ### JSON to data.frame ###
   oSeM_df <- input
   ### data.frame to spatialPointsDataFrame ###
