@@ -42,10 +42,9 @@ inteRidwTest <- function(input){
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
   ### IDW ###
   llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix)$var1.pred
-  return(llSPix$pred)
-#   ### create the png ###
-#   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
-#   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
-#   image(llSPix, "pred", col = bpy.colors(20, alpha=0.7))
-#   dev.off()
+  ### create the png ###
+  png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
+  par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
+  image(llSPix, "pred", col = bpy.colors(20, alpha=0.7))
+  dev.off()
 }
