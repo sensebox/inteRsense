@@ -11,6 +11,6 @@ imageBounds <- function(input){
   project_df=spTransform(oSeM_df, CRS("+proj=longlat +datum=WGS84")) #projInfo(type="proj")
   
   bbox <- bbox(oSeM_df)
-  list <- c(floor(bbox[1]), floor(bbox[2]), ceiling(bbox[3]), ceiling(bbox[4]))
+  list <- c(c(floor(bbox[2]), floor(bbox[1])),  c(ceiling(bbox[4]), ceiling(bbox[3])))
   return(list)
 }
