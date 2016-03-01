@@ -1,4 +1,5 @@
-#' Create a PNG which shows interpolated senseMap Data
+#' This function interpolates senseMap data using the IDW method.
+#' 
 #' 
 #' @export
 #' @import sp
@@ -6,10 +7,18 @@
 #' @import gstat
 #' @import rgeos
 #' @import maptools
+#' 
+#' @param input An unnested JSON
 
 inteRidw <- function(input){
+  library(sp)
+  library(rgdal)
+  library(gstat)
+  library(rgeos)
+  library(maptools)
+  
   ### JSON to data.frame ###
-  oSeM_df <- fromJSON(input)
+  oSeM_df <- input
   ### data.frame to spatialPointsDataFrame ###
   coordinates(oSeM_df) =~longitude+latitude
   ### adding CRS to the data ###

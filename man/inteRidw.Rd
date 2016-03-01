@@ -2,11 +2,14 @@
 % Please edit documentation in R/inteRidw.R
 \name{inteRidw}
 \alias{inteRidw}
-\title{Create a PNG which shows interpolated senseMap Data}
+\title{This function interpolates senseMap data using the IDW method.}
 \usage{
 inteRidw(input)
 }
+\arguments{
+\item{input}{An unnested JSON}
+}
 \description{
-Create a PNG which shows interpolated senseMap Data
+This function interpolates senseMap data using the IDW method.
 }
 

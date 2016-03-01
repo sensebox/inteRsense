@@ -1,4 +1,5 @@
-#' Create a PNG which shows interpolated senseMap Data
+#' This function interpolates senseMap data using the IDW method with adjustable idp
+#' 
 #' 
 #' @export
 #' @import sp
@@ -6,9 +7,12 @@
 #' @import gstat
 #' @import rgeos
 #' @import maptools
+#' 
+#' @param input An unnested JSON
+#' @param x number to be used as idp(inverse distance weighting power)
 
 
-inteRidwTest <- function(input){
+inteRidwTest <- function(input, x){
   library(sp)
   library(rgdal)
   library(gstat)
@@ -17,6 +21,8 @@ inteRidwTest <- function(input){
   
   ### JSON to data.frame ###
   oSeM_df <- input
+  ### inverse distance weighting power ###
+  idp <- x
   ### data.frame to spatialPointsDataFrame ###
   coordinates(oSeM_df) =~longitude+latitude
   ### adding CRS to the data ###
@@ -41,7 +47,7 @@ inteRidwTest <- function(input){
   llSGDF <- SpatialGridDataFrame(grid = slot(llGRD$SG,"grid"), proj4string = CRS(proj4string(llGRD$SG)), data = data.frame(in0 = llGRD_in))
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
   ### IDW ###
-  llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix)$var1.pred
+  llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp)$var1.pred
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
