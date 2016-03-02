@@ -1,6 +1,5 @@
 #' This function interpolates senseMap data using the IDW method with adjustable idp
 #' 
-#' 
 #' @export
 #' @import sp
 #' @import rgdal

@@ -2,11 +2,14 @@
 % Please edit documentation in R/imageBounds.R
 \name{imageBounds}
 \alias{imageBounds}
-\title{Returns ImageBounds}
+\title{Returns the Bbox in form of an array of a given JSON}
 \usage{
 imageBounds(input)
 }
+\arguments{
+\item{input}{An unnested JSON}
+}
 \description{
-Returns ImageBounds
+Returns the Bbox in form of an array of a given JSON
 }
 

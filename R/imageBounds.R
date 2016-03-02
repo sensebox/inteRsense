@@ -1,7 +1,9 @@
-#' Returns ImageBounds
+#' Returns the Bbox in form of an array of a given JSON
 #' 
 #' @export
 #' @import sp
+#' 
+#' @param input An unnested JSON
 
 imageBounds <- function(input){
   oSeM_df <- input
