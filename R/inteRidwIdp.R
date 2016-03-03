@@ -47,10 +47,6 @@ inteRidwTest <- function(input, x){
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
   ### IDW ###
   llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp)$var1.pred
-  # test #
-  proj4string(llSPix)="+init=epsg:3857"
-  project_df=spTransform(llSPix, CRS("+init=epsg:3857")) #projInfo(type="proj")
-  #test ende #
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
