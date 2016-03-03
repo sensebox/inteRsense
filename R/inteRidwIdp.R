@@ -43,10 +43,14 @@ inteRidwTest <- function(input, x){
   grdSp.union <- unionSpatialPolygons(grd_df, rep("x", length(slot(grd_df,"polygons"))))
   llGRD <- GE_SpatialGrid(grdSp.union)
   llGRD_in <- over(llGRD$SG, grdSp.union)
-  llSGDF <- SpatialGridDataFrame(grid = slot(llGRD$SG,"grid"), proj4string = CRS(proj4string("+init=epsg:3857")), data = data.frame(in0 = llGRD_in))
+  llSGDF <- SpatialGridDataFrame(grid = slot(llGRD$SG,"grid"), proj4string = CRS(proj4string(llGRD$SG)), data = data.frame(in0 = llGRD_in))
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
   ### IDW ###
   llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp)$var1.pred
+  # test #
+  proj4string(llSPix)="+init=epsg:3857"
+  project_df=spTransform(llSPix, CRS("+init=epsg:3857")) #projInfo(type="proj")
+  #test ende #
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
