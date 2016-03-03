@@ -48,8 +48,8 @@ inteRidwTest <- function(input, x){
   ### IDW ###
   llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp)$var1.pred
   # test #
-  proj4string(llSPix)="+init=epsg:3857"
-  project_df=spTransform(llSPix, CRS("+init=epsg:3857")) #projInfo(type="proj")
+  proj4string(llSPix)="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+  project_df=spTransform(llSPix, CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")) #projInfo(type="proj")
   #test ende #
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
