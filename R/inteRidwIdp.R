@@ -11,7 +11,7 @@
 #' @param x number to be used as idp(inverse distance weighting power)
 
 
-inteRidwTest <- function(input, x){
+inteRidwIdp <- function(input, x){
   library(sp)
   library(rgdal)
   library(gstat)
