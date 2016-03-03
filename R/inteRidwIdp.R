@@ -30,8 +30,10 @@ inteRidwTest <- function(input, x){
   ### creating a bounding box ###
   bbox <- bbox(oSeM_df)
   ### creating a grid based on the bbox ###
-  x.range <- as.numeric(c(floor(bbox[1]), ceiling(bbox[3]))) # min/max longitude of the interpolation area
-  y.range <- as.numeric(c(floor(bbox[2]), ceiling(bbox[4]))) # min/max latitude of the interpolation area  
+#   x.range <- as.numeric(c(floor(bbox[1]), ceiling(bbox[3]))) # min/max longitude of the interpolation area
+#   y.range <- as.numeric(c(floor(bbox[2]), ceiling(bbox[4]))) # min/max latitude of the interpolation area  
+  x.range <- as.numeric(c(bbox[1], bbox[3])) # min/max longitude of the interpolation area
+  y.range <- as.numeric(c(bbox[2], bbox[4])) # min/max latitude of the interpolation area  
   grd <- expand.grid(x = seq(from = x.range[1], to = x.range[2], by = 0.1), y = seq(from = y.range[1], to = y.range[2], by = 0.1))
   coordinates(grd) <- ~x + y
   gridded(grd) <- TRUE
@@ -47,10 +49,6 @@ inteRidwTest <- function(input, x){
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
   ### IDW ###
   llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp)$var1.pred
-  # test #
-  proj4string(llSPix)="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
-  project_df=spTransform(llSPix, CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")) #projInfo(type="proj")
-  #test ende #
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
