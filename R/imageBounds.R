@@ -15,7 +15,7 @@ imageBounds <- function(input){
 #   project_df=spTransform(oSeM_df, CRS("+init=epsg:3857")) #projInfo(type="proj")
   
   bbox <- bbox(oSeM_df)
-#   list <- c(c(floor(bbox[2]), floor(bbox[1])),  c(ceiling(bbox[4]), ceiling(bbox[3])))
-  list <- c(c(bbox[2], bbox[1]),  c(bbox[4], bbox[3]))
+  list <- c(c(floor(bbox[2]), floor(bbox[1])),  c(ceiling(bbox[4]), ceiling(bbox[3])))
+  
   return(list)
 }
