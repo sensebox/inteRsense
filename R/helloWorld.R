@@ -2,7 +2,7 @@
 #' 
 #' @export
 
-helloWorld <- function(){
-  world <- 'Hello World!'
+helloWorld <- function(x){
+  world <- x
   return(world)
 }
