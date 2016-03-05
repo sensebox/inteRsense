@@ -3,6 +3,6 @@
 #' @export
 
 helloWorld <- function(x){
-  world <- x
-  return(class(world))
+  world <- class(x)
+  return(world)
 }
