@@ -4,5 +4,5 @@
 
 helloWorld <- function(x){
   world <- x
-  return(world)
+  return(class(world))
 }
