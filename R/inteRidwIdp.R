@@ -28,7 +28,7 @@ inteRidwIdp <- function(input, x){
   proj4string(oSeM_df)="+proj=longlat +datum=WGS84"
   project_df=spTransform(oSeM_df, CRS("+proj=longlat +datum=WGS84")) 
   ### creating a bounding box ###
-#   bbox <- bbox(oSeM_df)
+  bbox <- bbox(oSeM_df)
   ### creating a grid based on the bbox ###
   x.range <- as.numeric(c(floor(bbox[1]), ceiling(bbox[3]))) # min/max longitude of the interpolation area
   y.range <- as.numeric(c(floor(bbox[2]), ceiling(bbox[4]))) # min/max latitude of the interpolation area  
