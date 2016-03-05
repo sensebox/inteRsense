@@ -30,10 +30,10 @@ inteRidwIdp <- function(input, x){
   ### creating a bounding box ###
 #   bbox <- bbox(oSeM_df)
   ### creating a grid based on the bbox ###
-#   x.range <- as.numeric(c(floor(bbox[1]), ceiling(bbox[3]))) # min/max longitude of the interpolation area
-#   y.range <- as.numeric(c(floor(bbox[2]), ceiling(bbox[4]))) # min/max latitude of the interpolation area  
-x.range <- as.numeric(c(6.1039188131690025, 13.888012293346035)) # min/max longitude of the interpolation area
-y.range <- as.numeric(c(47.411713802829894, 53.88158363753247)) # min/max latitude of the interpolation area  
+  x.range <- as.numeric(c(floor(bbox[1]), ceiling(bbox[3]))) # min/max longitude of the interpolation area
+  y.range <- as.numeric(c(floor(bbox[2]), ceiling(bbox[4]))) # min/max latitude of the interpolation area  
+# x.range <- as.numeric(c(6.1039188131690025, 13.888012293346035)) # min/max longitude of the interpolation area
+# y.range <- as.numeric(c(47.411713802829894, 53.88158363753247)) # min/max latitude of the interpolation area  
   grd <- expand.grid(x = seq(from = x.range[1], to = x.range[2], by = 0.1), y = seq(from = y.range[1], to = y.range[2], by = 0.1))
   coordinates(grd) <- ~x + y
   gridded(grd) <- TRUE
