@@ -3,6 +3,6 @@
 #' @export
 
 helloWorld <- function(x){
-  as.numeric(x)
-  class(x)
+  idp <- as.numeric(x)
+  return(idp)
 }
