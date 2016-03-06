@@ -4,7 +4,7 @@
 \alias{helloWorld}
 \title{Test function HelloWorld}
 \usage{
-helloWorld()
+helloWorld(x)
 }
 \description{
 Test function HelloWorld

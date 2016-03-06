@@ -2,8 +2,8 @@
 
 export(helloWorld)
 export(imageBounds)
-export(inteRidw)
 export(inteRidwIdp)
+export(inteRtp)
 import(gstat)
 import(maptools)
 import(rgdal)

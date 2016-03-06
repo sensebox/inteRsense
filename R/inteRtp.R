@@ -10,7 +10,7 @@
 #' 
 #' @param input An unnested JSON
 
-inteRidw <- function(input){
+inteRtp <- function(input){
   library(sp)
   library(rgdal)
   library(gstat)
@@ -43,7 +43,7 @@ inteRidw <- function(input){
   llSGDF <- SpatialGridDataFrame(grid = slot(llGRD$SG,"grid"), proj4string = CRS(proj4string(llGRD$SG)), data = data.frame(in0 = llGRD_in))
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
   ### IDW ###
-  llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix)$var1.pred
+  llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, nmax=1)$var1.pred
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
