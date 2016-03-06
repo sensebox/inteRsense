@@ -21,7 +21,7 @@ inteRidwIdp <- function(input, x){
   ### JSON to data.frame ###
   oSeM_df <- input
   ### inverse distance weighting power ###
-  p <- x
+  p <- as.numeric(x)
   ### data.frame to spatialPointsDataFrame ###
   coordinates(oSeM_df) =~longitude+latitude
   ### adding CRS to the data ###
