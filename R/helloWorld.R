@@ -3,5 +3,6 @@
 #' @export
 
 helloWorld <- function(x){
+  as.numeric(x)
   class(x)
 }
