@@ -21,7 +21,7 @@ inteRidwIdp <- function(input, x){
   ### JSON to data.frame ###
   oSeM_df <- input
   ### inverse distance weighting power ###
-  idp <- x
+  p <- x
   ### data.frame to spatialPointsDataFrame ###
   coordinates(oSeM_df) =~longitude+latitude
   ### adding CRS to the data ###
@@ -48,7 +48,7 @@ inteRidwIdp <- function(input, x){
   llSGDF <- SpatialGridDataFrame(grid = slot(llGRD$SG,"grid"), proj4string = CRS(proj4string(llGRD$SG)), data = data.frame(in0 = llGRD_in))
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
   ### IDW ###
-  llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp)$var1.pred
+  llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp=p)$var1.pred
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
