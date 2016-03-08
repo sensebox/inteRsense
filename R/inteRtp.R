@@ -22,8 +22,8 @@ inteRtp <- function(input){
   ### data.frame to spatialPointsDataFrame ###
   coordinates(oSeM_df) =~longitude+latitude
   ### adding CRS to the data ###
-  proj4string(oSeM_df)="+proj=longlat +datum=WGS84"
-  project_df=spTransform(oSeM_df, CRS("+proj=longlat +datum=WGS84")) 
+  proj4string(oSeM_df)="+init=epsg:3857" 
+  project_df=spTransform(oSeM_df, CRS("+init=epsg:3857"))
   ### creating a bounding box ###
   bbox <- bbox(oSeM_df)
   ### creating a grid based on the bbox ###
@@ -34,11 +34,11 @@ inteRtp <- function(input){
   gridded(grd) <- TRUE
   grdSp <- as(grd, "SpatialPolygons")
   ### adding CRS to grid ###
-  proj4string(grdSp)="+proj=longlat +datum=WGS84"
-  grd_df=spTransform(grdSp, CRS("+proj=longlat +datum=WGS84")) 
+  proj4string(grdSp)="+init=epsg:3857"
+  grd_df=spTransform(grdSp, CRS("+init=epsg:3857")) 
   ### setting up basegrid for the png ###
   grdSp.union <- unionSpatialPolygons(grd_df, rep("x", length(slot(grd_df,"polygons"))))
-  llGRD <- GE_SpatialGrid(grdSp.union)
+  llGRD <- Sobj_SpatialGrid(grdSp.union)
   llGRD_in <- over(llGRD$SG, grdSp.union)
   llSGDF <- SpatialGridDataFrame(grid = slot(llGRD$SG,"grid"), proj4string = CRS(proj4string(llGRD$SG)), data = data.frame(in0 = llGRD_in))
   llSPix <- as(llSGDF, "SpatialPixelsDataFrame")
