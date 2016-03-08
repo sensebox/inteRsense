@@ -52,6 +52,7 @@ inteRidwIdp <- function(input, x){
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
-  image(llSPix, "pred", col = bpy.colors(20, alpha=0.7))
+#   image(llSPix, "pred", col = bpy.colors(20, alpha=0.7))
+  spplot(llSPix["pred"], col = bpy.colors(20, alpha=0.7))
   dev.off()
 }
