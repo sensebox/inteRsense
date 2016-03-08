@@ -6,6 +6,7 @@
 #' @import gstat
 #' @import rgeos
 #' @import maptools
+#' @import fields
 #' 
 #' @param input An unnested JSON
 #' @param x number to be used as idp(inverse distance weighting power)
@@ -17,6 +18,7 @@ inteRidwIdp <- function(input, x){
   library(gstat)
   library(rgeos)
   library(maptools)
+  library(fields)
   
   ### JSON to data.frame ###
   oSeM_df <- input
@@ -51,8 +53,10 @@ inteRidwIdp <- function(input, x){
   llSPix$pred <- idw(value ~ 1, oSeM_df, llSPix, idp=p)$var1.pred
   ### create the png ###
   png(file = "idw.png", width = llGRD$width,height = llGRD$height, bg = "transparent")
-  par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
-#   image(llSPix, "pred", col = bpy.colors(20, alpha=0.7))
-  spplot(llSPix["pred"], col = bpy.colors(20, alpha=0.7))
+#   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
+  par(mar = c(1.5, 0, 1.5, 1.5), xaxs = "i", yaxs = "i")
+  image(llSPix, "pred", col = bpy.colors(20, alpha=0.7))
+  par(oma=c(0,3.5,0,0))
+  image.plot(zlim=c(min(llSPix$pred),max(llSPix$pred)), nlevel=20 ,legend.only=TRUE, horizontal=FALSE, col = bpy.colors(20, alpha=0.7))
   dev.off()
 }
