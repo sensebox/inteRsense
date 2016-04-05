@@ -3,7 +3,6 @@
 #' @export
 #' @import sp
 #' @import rgdal
-#' @import gstat
 #' @import rgeos
 #' @import maptools
 #' @import fields
@@ -15,7 +14,6 @@
 inteRidwIdp <- function(input, x){
   library(sp)
   library(rgdal)
-  library(gstat)
   library(rgeos)
   library(maptools)
   library(fields)
