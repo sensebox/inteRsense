@@ -13,13 +13,6 @@
 
 
 inteRidwIdp <- function(input, x){
-  library(sp)
-  library(rgdal)
-  library(gstat)
-  library(rgeos)
-  library(maptools)
-  library(fields)
-  
   ### JSON to data.frame ###
   oSeM_df <- input
   ### inverse distance weighting power ###
