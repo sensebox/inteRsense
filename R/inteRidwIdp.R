@@ -27,7 +27,7 @@ inteRidwIdp <- function(input, x){
   ### data.frame to spatialPointsDataFrame ###
   coordinates(oSeM_df) =~longitude+latitude
   ### adding CRS to the data ###
-  proj4string(oSeM_df)="+init=epsg:3857" 
+  proj4string(oSeM_df)="+init=epsg:4326" 
   project_df=spTransform(oSeM_df, CRS("+init=epsg:3857"))
   ### creating a bounding box ###
   bbox <- bbox(oSeM_df)
