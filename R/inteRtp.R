@@ -49,7 +49,7 @@ inteRtp <- function(input){
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
   image(llSPix, "pred", col = bpy.colors(20, alpha=0.7))
   dev.off()
-  png(file = "legend.png", width = 400, height = 200, res = 250, bg = "transparent")
+  png(file = "legend.png", width = 400, height = 250, res = 250, bg = "transparent")
   par(mar = c(0, 0, 0, 0), xaxs = "i", yaxs = "i")
   image.plot(zlim=c(min(llSPix$pred),max(llSPix$pred)), nlevel=20 ,legend.only=TRUE, horizontal=FALSE, col = bpy.colors(20, alpha=0.7))
   dev.off()
